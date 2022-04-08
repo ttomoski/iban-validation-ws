@@ -2,6 +2,13 @@
 
 Web service with an REST Endpoint which accepts an IBAN number and validates it (https://en.wikipedia.org/wiki/International_Bank_Account_Number#Validating_the_IBAN).
 
-To run the service, a PostgreSQL database is required to be configured, which will used for retreiving the supported country codes and IBAN lengths for them.
+To run the service into a docker container, execute the following steps:
 
-In the iban-validation-ws/src/main/resources/create_table_and_init_data.sql file, contains the SQL code for creating the needed table and initializing it with some data.
+Package the application into a jar using the maven package command 
+ >./mvnw clean package -DskipTests
+ 
+Build the docker image using the following command
+>docker build -t iban-validation-ws .
+
+Then execute the docker-compose command
+>docker-compose up
